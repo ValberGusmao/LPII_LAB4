@@ -5,7 +5,7 @@ public class FolhaDePagamento {
     private float pagamentoMensal;
 
     public FolhaDePagamento() {
-        this.funcionarios = new ArrayList<Funcionario>();
+        this.funcionarios = new ArrayList<>();
     }
 
     public boolean adicionarFuncionario(Funcionario f){
@@ -28,6 +28,9 @@ public class FolhaDePagamento {
         pagamentoMensal = 0;
         for (Funcionario f: funcionarios) {
             pagamentoMensal += f.getValorFinal();
+            if (f.getClass() == Vendedor.class){
+                ((Vendedor) f).contabilizarVendas();
+            }
         }
         return pagamentoMensal;
     }

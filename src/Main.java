@@ -4,7 +4,6 @@ public class Main {
     public static void main(String[] args) {
         FolhaDePagamento fp = new FolhaDePagamento();
         Derpartamento dpNorte = new Derpartamento("Norte");
-        Derpartamento dpSul = new Derpartamento("Sul");
 
         ArrayList<Beneficio> beneficios = new ArrayList<>();
         beneficios.add(new Beneficio("Vale Transporte", 300));
@@ -30,13 +29,21 @@ public class Main {
         venda = new Venda("06-06-2023", 500.32f);
         vendedor.adicionarVendas(venda);
 
-
-
         fp.adicionarFuncionario(entregador);
         fp.adicionarFuncionario(administrador);
         fp.adicionarFuncionario(vendedor);
-
         fp.exibirFuncionarios();
+        System.out.printf("Pagamento Mensal: %.2f%n",fp.pagamentoMensal());
+
+        System.out.println("\n----------------------------------------------\n");
+
+        fp.removerFuncionario(administrador);
+        entregador.adicionarBeneficios(new Beneficio("Vale Alimentação", 400));
+        vendedor.adicionarDescontos(new Desconto("Emprestimo",0,200));
+        vendedor.adicionarVendas(new Venda("29-09-2023",760));
+        vendedor.setTaxaComissao(0.4f);
+        fp.exibirFuncionarios();
+        System.out.printf("Pagamento do Mês Anterior: %.2f\n",fp.getPagamentoMensal());
         System.out.printf("Pagamento Mensal: %.2f%n",fp.pagamentoMensal());
     }
 }

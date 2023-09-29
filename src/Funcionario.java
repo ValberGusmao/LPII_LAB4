@@ -7,6 +7,8 @@ public class Funcionario {
     protected Derpartamento derpartamento;
     protected ArrayList<Beneficio> beneficios;
     protected ArrayList<Desconto> descontos;
+    //modificadores surgiram pq todos os funcionários
+    // tinham alguns benefícios e descontos em comum
     public static ArrayList<Modificador> modificadores = new ArrayList<>();
 
     public Funcionario(String nome, String cpf, float salarioBase, Derpartamento derpartamento) {
@@ -44,7 +46,7 @@ public class Funcionario {
         }
         for (Desconto d: descontos){
             if(d.getValorNum() != 0){
-                total -= d.getValorNum()*salarioBase;
+                total -= d.getValorNum();
             }
             if (d.getValorPerc() != 0){
                 total -= d.getValorPerc()*salarioBase;

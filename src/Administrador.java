@@ -11,6 +11,16 @@ public class Administrador extends Funcionario {
         return salarioBase + bonusChefia;
     }
 
+    public float getBonusChefia() {
+        return bonusChefia;
+    }
+
+    public void setBonusChefia(float bonusChefia) {
+        if (bonusChefia > 0){
+            this.bonusChefia = bonusChefia;
+        }
+    }
+
     @Override
     public String toString() {
         String r;

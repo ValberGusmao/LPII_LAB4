@@ -11,6 +11,16 @@ public class Entregador extends Funcionario{
         return salarioBase + periculosidade;
     }
 
+    public float getPericulosidade() {
+        return periculosidade;
+    }
+
+    public void setPericulosidade(float periculosidade) {
+        if (periculosidade > 0){
+            this.periculosidade = periculosidade;
+            }
+    }
+
     @Override
     public String toString() {
         String r;

@@ -11,7 +11,6 @@ public class Beneficio extends Modificador {
         return nome+"\n\tvalor: "+valor;
     }
 
-
     public float getValor() {
         return valor;
     }
